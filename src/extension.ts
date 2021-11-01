@@ -37,7 +37,7 @@ export async function activate(context: ExtensionContext) {
 	}));
 	toDispose.push(workspace.onDidChangeTextDocument(e => {
 		if (e.document.uri.scheme === 'foo') {
-			channel.appendLine('onDidChangeTextDocument ' + e.document.uri.toString());
+			channel.appendLine(`onDidChangeTextDocument ${e.document.uri.toString()}, content: ${e.document.getText()}`);
 		}
 	}));
 	toDispose.push(workspace.onDidCloseTextDocument(e => {
